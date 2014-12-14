@@ -13,6 +13,11 @@
 		13C9BBDD1A3960B5006E2341 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13C9BBDC1A3960B5006E2341 /* Images.xcassets */; };
 		13C9BBE01A3960B5006E2341 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C9BBDE1A3960B5006E2341 /* LaunchScreen.xib */; };
 		13C9BBEC1A3960B5006E2341 /* FinalClassRosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBEB1A3960B5006E2341 /* FinalClassRosterTests.swift */; };
+		13C9BBF61A39785A006E2341 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBF51A39785A006E2341 /* MainTableViewController.swift */; };
+		13C9BBF81A397916006E2341 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBF71A397916006E2341 /* AddViewController.swift */; };
+		13C9BBFA1A3979BA006E2341 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBF91A3979BA006E2341 /* DetailViewController.swift */; };
+		13C9BBFC1A3D546E006E2341 /* roster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13C9BBFB1A3D546E006E2341 /* roster.plist */; };
+		13C9BC001A3D85C7006E2341 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBFF1A3D85C7006E2341 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		13C9BBE51A3960B5006E2341 /* FinalClassRosterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalClassRosterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C9BBEA1A3960B5006E2341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C9BBEB1A3960B5006E2341 /* FinalClassRosterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalClassRosterTests.swift; sourceTree = "<group>"; };
+		13C9BBF51A39785A006E2341 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		13C9BBF71A397916006E2341 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		13C9BBF91A3979BA006E2341 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		13C9BBFB1A3D546E006E2341 /* roster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = roster.plist; sourceTree = "<group>"; };
+		13C9BBFF1A3D85C7006E2341 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,11 @@
 				13C9BBDC1A3960B5006E2341 /* Images.xcassets */,
 				13C9BBDE1A3960B5006E2341 /* LaunchScreen.xib */,
 				13C9BBD31A3960B5006E2341 /* Supporting Files */,
+				13C9BBF51A39785A006E2341 /* MainTableViewController.swift */,
+				13C9BBF71A397916006E2341 /* AddViewController.swift */,
+				13C9BBF91A3979BA006E2341 /* DetailViewController.swift */,
+				13C9BBFB1A3D546E006E2341 /* roster.plist */,
+				13C9BBFF1A3D85C7006E2341 /* Person.swift */,
 			);
 			path = FinalClassRoster;
 			sourceTree = "<group>";
@@ -193,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C9BBDB1A3960B5006E2341 /* Main.storyboard in Resources */,
+				13C9BBFC1A3D546E006E2341 /* roster.plist in Resources */,
 				13C9BBE01A3960B5006E2341 /* LaunchScreen.xib in Resources */,
 				13C9BBDD1A3960B5006E2341 /* Images.xcassets in Resources */,
 			);
@@ -212,7 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C9BC001A3D85C7006E2341 /* Person.swift in Sources */,
 				13C9BBD81A3960B5006E2341 /* ViewController.swift in Sources */,
+				13C9BBF61A39785A006E2341 /* MainTableViewController.swift in Sources */,
+				13C9BBFA1A3979BA006E2341 /* DetailViewController.swift in Sources */,
+				13C9BBF81A397916006E2341 /* AddViewController.swift in Sources */,
 				13C9BBD61A3960B5006E2341 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +425,7 @@
 				13C9BBF11A3960B5006E2341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13C9BBF21A3960B5006E2341 /* Build configuration list for PBXNativeTarget "FinalClassRosterTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +434,7 @@
 				13C9BBF41A3960B5006E2341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
