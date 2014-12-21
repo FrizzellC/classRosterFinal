@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("detailView loaded")
 
         // Do any additional setup after loading the view.
     }

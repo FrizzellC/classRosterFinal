@@ -10,10 +10,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    var people:NSMutableArray = NSMutableArray()
-    
-    @IBOutlet weak var firstNameInCell: UILabel!
-    @IBOutlet weak var lastNameInCell: UILabel!
+    var roster:NSMutableArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool) {
         //^called every time the view appears
@@ -23,7 +20,7 @@ class MainTableViewController: UITableViewController {
         var rosterFromUserDefaults:NSMutableArray? = userDefaults.objectForKey("roster") as? NSMutableArray
         
         if ((rosterFromUserDefaults) != nil) {
-            people = rosterFromUserDefaults!
+            roster = rosterFromUserDefaults!
         }
         
         self.tableView.reloadData()
@@ -33,6 +30,7 @@ class MainTableViewController: UITableViewController {
     
         override func viewDidLoad() {
         super.viewDidLoad()
+            println("view did load")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,53 +51,55 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return roster.count
     }
 
-    @IBAction func addButtonClicked(sender: AnyObject) {
-    
-    }
+//    @IBAction func addButtonClicked(sender: AnyObject) {
+//        println("add button clicked")
+//    
+//    }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PERSON_CELL", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PERSON_CELL", forIndexPath: indexPath) as PersonTableViewCell
 
         // Configure the cell
-        var person:NSDictionary = people.objectAtIndex(indexPath.row) as NSDictionary
+        var person:NSDictionary = roster.objectAtIndex(indexPath.row) as NSDictionary
         
-        var firstNameInCell = UILabel()
-        firstNameInCell.textAlignment = NSTextAlignment.Center
-        firstNameInCell.text = person.objectForKey("roster") as? String
-
-        var lastNameInCell = UILabel()
-        lastNameInCell.textAlignment = NSTextAlignment.Center
-        lastNameInCell.text = person.objectForKey("roster") as? String
+        
+        //cell.firstNameInCell.text = roster.valueForKey("firstName") as? String
+        cell.firstNameInCell.text = person.valueForKey("firstName") as? String
+        println(roster.valueForKey("firstName") as? String)
+        
+        cell.lastnameInCell.text = person.valueForKey("lastName") as? String
         
         var imageInCell = UIImageView()
         imageInCell.image = UIImage(contentsOfFile: "cameraImage")
+    
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
+    //allow editing the rows
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    // delete or add rows
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            roster.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        tableView.reloadData()
+        
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

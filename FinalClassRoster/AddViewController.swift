@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var imagePickerController = UIImagePickerController()
 
     
     @IBOutlet weak var firstNameTextField: UITextField! = UITextField()
@@ -17,26 +18,30 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var gitHubTextField: UITextField! = UITextField()
     
+    @IBOutlet weak var personImage: UIImageView!
+    
     @IBAction func updateImageClicked(sender: AnyObject) {
         println("update image tapped")
         
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            var imagePickerController = UIImagePickerController()
+            self.imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.imagePickerController.delegate = self
+            self.imagePickerController.allowsEditing = true
+            self.presentViewController(self.imagePickerController, animated: true, completion: nil)
+        }
         
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-//                var imagePickerController = UIImagePickerController()
-//                self.imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
-//                self.imagePickerController.delegate = self
-//                self.imagePickerController.allowsEditing = true
-//         //       self.presentViewController(self.imagePickerController, animated: true, completion: nil)
-//            }
-//        
-//        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-//            let image = info[UIImagePickerControllerEditedImage] as UIImage
-//            //            self.selectedPerson.image = image
-//            //            self.imageView.image = image
-//            
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        }
+        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+            let image = info[UIImagePickerControllerEditedImage] as UIImage
+            
+                        self.personImage.image = image
+                        
+    
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
 
+        
     }
 
         
@@ -44,6 +49,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("addview loaded")
         
         // Do any additional setup after loading the view.
     }
@@ -71,7 +77,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         //create the user's default view each time the app reopens
         var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
-        var roster:NSMutableArray? = userDefaults.objectForKey("roster") as? NSMutableArray
+        var people:NSMutableArray? = userDefaults.objectForKey("roster") as? NSMutableArray
         
         //create the dictionary for default view
         var dataSet:NSMutableDictionary = NSMutableDictionary()
@@ -81,12 +87,12 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         dataSet.setObject(lastNameTextField.text, forKey: "lastName")
         dataSet.setObject(gitHubTextField.text, forKey: "gitHub")
         
-        if ((roster) != nil) { //data is available
+        if ((people) != nil) { //data is available
             
             //create a new roster array and delete the old one
             var newMutableRoster:NSMutableArray = NSMutableArray()
             
-            for dict:AnyObject in roster! {
+            for dict:AnyObject in people! {
                 newMutableRoster.addObject(dict as NSDictionary)
             }
             
@@ -98,17 +104,19 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         } else {
               userDefaults.removeObjectForKey("roster")
               //initialize the roster
-              roster = NSMutableArray()
+              people = NSMutableArray()
             
               //add an object (the data set) to it
-              roster!.addObject(dataSet)
+              people!.addObject(dataSet)
             
               //save the newly added object so it will be there next time the app opens
-              userDefaults.setObject(roster, forKey: "roster")
+              userDefaults.setObject(people, forKey: "roster")
           }
         
         //save the changes
         userDefaults.synchronize()
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

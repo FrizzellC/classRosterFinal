@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139E965E1A3E564500E3C526 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E965D1A3E564500E3C526 /* PersonTableViewCell.swift */; };
 		13C9BBD61A3960B5006E2341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBD51A3960B5006E2341 /* AppDelegate.swift */; };
 		13C9BBD81A3960B5006E2341 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBD71A3960B5006E2341 /* ViewController.swift */; };
 		13C9BBDB1A3960B5006E2341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C9BBD91A3960B5006E2341 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		139E965D1A3E564500E3C526 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		13C9BBD01A3960B5006E2341 /* FinalClassRoster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalClassRoster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C9BBD41A3960B5006E2341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13C9BBD51A3960B5006E2341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				13C9BBF91A3979BA006E2341 /* DetailViewController.swift */,
 				13C9BBFB1A3D546E006E2341 /* roster.plist */,
 				13C9BBFF1A3D85C7006E2341 /* Person.swift */,
+				139E965D1A3E564500E3C526 /* PersonTableViewCell.swift */,
 			);
 			path = FinalClassRoster;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				13C9BBF61A39785A006E2341 /* MainTableViewController.swift in Sources */,
 				13C9BBFA1A3979BA006E2341 /* DetailViewController.swift in Sources */,
 				13C9BBF81A397916006E2341 /* AddViewController.swift in Sources */,
+				139E965E1A3E564500E3C526 /* PersonTableViewCell.swift in Sources */,
 				13C9BBD61A3960B5006E2341 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
