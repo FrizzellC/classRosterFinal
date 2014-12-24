@@ -4,12 +4,6 @@
 <array>
 	<dict>
 		<key>firstName</key>
-		<string>Chantel</string>
-		<key>lastName</key>
-		<string>Frizzell</string>
-	</dict>
-	<dict>
-		<key>firstName</key>
 		<string>Brad </string>
 		<key>lastName</key>
 		<string>Johnson</string>

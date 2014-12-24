@@ -66,16 +66,15 @@ class MainTableViewController: UITableViewController {
         // Configure the cell
         var person:NSDictionary = roster.objectAtIndex(indexPath.row) as NSDictionary
         
-        
-        //cell.firstNameInCell.text = roster.valueForKey("firstName") as? String
         cell.firstNameInCell.text = person.valueForKey("firstName") as? String
         println(roster.valueForKey("firstName") as? String)
         
         cell.lastnameInCell.text = person.valueForKey("lastName") as? String
         
-        var imageInCell = UIImageView()
-        imageInCell.image = UIImage(contentsOfFile: "cameraImage")
-    
+        var imageInCell = UIImageView().image
+        
+        cell.imageInCell.image = UIImage(contentsOfFile: "cameraImage")
+        
         return cell
     }
     
@@ -91,12 +90,15 @@ class MainTableViewController: UITableViewController {
             roster.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         
+        
         tableView.reloadData()
+        println("row deleted")
+        
         
     }
     
@@ -116,14 +118,23 @@ class MainTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //if a cell is clicked
+        if (segue.identifier == "segueToDVC") {
+            var selectedIndexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
+            var detailViewController:DetailViewController = segue.destinationViewController as DetailViewController
+            detailViewController.selectedPersonData = roster.objectAtIndex(selectedIndexPath.row) as NSDictionary
+        }
+        
         // Get the new view controller using [segue destinationViewController].
+        
+        
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

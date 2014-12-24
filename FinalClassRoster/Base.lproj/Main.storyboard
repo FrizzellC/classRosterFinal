@@ -70,7 +70,7 @@
                                     <outlet property="firstNameInCell" destination="FTA-uC-J19" id="HY4-Wh-9qO"/>
                                     <outlet property="imageInCell" destination="PgC-LN-PvT" id="YnA-r5-lTh"/>
                                     <outlet property="lastnameInCell" destination="gVw-zi-ToL" id="1mh-sb-Lsn"/>
-                                    <segue destination="wiW-9g-3J5" kind="show" id="6eV-03-gd2"/>
+                                    <segue destination="wiW-9g-3J5" kind="show" identifier="segueToDVC" id="6eV-03-gd2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -246,7 +246,6 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew8-NW-BiZ">
                                         <rect key="frame" x="160" y="195" width="116.5" height="21"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="GDI-Xa-aU2"/>
                                             <constraint firstAttribute="width" constant="116.5" id="RL8-0F-y8p"/>
@@ -285,7 +284,6 @@
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvc-Xb-Dzx">
                                         <rect key="frame" x="160" y="166" width="116.5" height="21"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="EBk-0G-mRt"/>
                                             <constraint firstAttribute="width" constant="116.5" id="dbM-Uu-0qT"/>
@@ -329,6 +327,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="firstNameInDVC" destination="mvc-Xb-Dzx" id="N7i-Yt-MOL"/>
+                        <outlet property="gitHubInDVC" destination="mf0-rK-Zki" id="MFE-iW-xgT"/>
+                        <outlet property="imageInDVC" destination="bNK-yp-hhq" id="nj1-H5-Q2Y"/>
+                        <outlet property="lastNameInDVC" destination="Ew8-NW-BiZ" id="hSP-ef-v8e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyj-5G-5IV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,6 +361,6 @@
         <image name="cameraImage" width="159" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TwR-KF-Ma3"/>
+        <segue reference="Vqe-OL-gYw"/>
     </inferredMetricsTieBreakers>
 </document>

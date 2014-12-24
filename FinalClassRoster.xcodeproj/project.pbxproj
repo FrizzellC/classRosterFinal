@@ -18,7 +18,6 @@
 		13C9BBF81A397916006E2341 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBF71A397916006E2341 /* AddViewController.swift */; };
 		13C9BBFA1A3979BA006E2341 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBF91A3979BA006E2341 /* DetailViewController.swift */; };
 		13C9BBFC1A3D546E006E2341 /* roster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13C9BBFB1A3D546E006E2341 /* roster.plist */; };
-		13C9BC001A3D85C7006E2341 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9BBFF1A3D85C7006E2341 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		13C9BBF71A397916006E2341 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		13C9BBF91A3979BA006E2341 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		13C9BBFB1A3D546E006E2341 /* roster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = roster.plist; sourceTree = "<group>"; };
-		13C9BBFF1A3D85C7006E2341 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +97,6 @@
 				13C9BBF71A397916006E2341 /* AddViewController.swift */,
 				13C9BBF91A3979BA006E2341 /* DetailViewController.swift */,
 				13C9BBFB1A3D546E006E2341 /* roster.plist */,
-				13C9BBFF1A3D85C7006E2341 /* Person.swift */,
 				139E965D1A3E564500E3C526 /* PersonTableViewCell.swift */,
 			);
 			path = FinalClassRoster;
@@ -231,7 +228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13C9BC001A3D85C7006E2341 /* Person.swift in Sources */,
 				13C9BBD81A3960B5006E2341 /* ViewController.swift in Sources */,
 				13C9BBF61A39785A006E2341 /* MainTableViewController.swift in Sources */,
 				13C9BBFA1A3979BA006E2341 /* DetailViewController.swift in Sources */,

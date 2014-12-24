@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var imagePickerController = UIImagePickerController()
 
@@ -18,57 +19,58 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     
     @IBOutlet weak var gitHubTextField: UITextField! = UITextField()
     
+    //removal of keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if (textField == self.firstNameTextField) {
+            textField.resignFirstResponder()
+            lastNameTextField.becomeFirstResponder()
+        } else if (textField == self.lastNameTextField) {
+            textField.resignFirstResponder()
+            gitHubTextField.becomeFirstResponder()
+        } else if (textField == self.gitHubTextField) {
+            textField.resignFirstResponder()
+            return true
+        }
+        
+        return true
+    }
+
+    
     @IBOutlet weak var personImage: UIImageView!
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        let image = info[UIImagePickerControllerEditedImage] as UIImage
+        self.personImage.image = image
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     @IBAction func updateImageClicked(sender: AnyObject) {
         println("update image tapped")
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            var imagePickerController = UIImagePickerController()
+            self.imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            self.imagePickerController.delegate = self
+            self.imagePickerController.allowsEditing = true
+            self.presentViewController(self.imagePickerController, animated: true, completion: nil)
+        } else if  UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             var imagePickerController = UIImagePickerController()
             self.imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.imagePickerController.delegate = self
             self.imagePickerController.allowsEditing = true
             self.presentViewController(self.imagePickerController, animated: true, completion: nil)
         }
-        
-        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-            let image = info[UIImagePickerControllerEditedImage] as UIImage
-            
-                        self.personImage.image = image
-                        
-    
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
 
-        
     }
 
-        
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         println("addview loaded")
         
         // Do any additional setup after loading the view.
-    }
-    
-    //removal of keyboard
-        func textFieldShouldReturn(textField: UITextField) -> Bool {
-            
-            if (textField == self.firstNameTextField) {
-                textField.resignFirstResponder()
-                lastNameTextField.becomeFirstResponder()
-            } else if (textField == self.lastNameTextField) {
-                textField.resignFirstResponder()
-                gitHubTextField.becomeFirstResponder()
-            } else if (textField == self.gitHubTextField) {
-                textField.resignFirstResponder()
-                return true
-                
-            }
-            return true
     }
     
     @IBAction func saveChangesClicked(sender: AnyObject) {
@@ -86,6 +88,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         dataSet.setObject(firstNameTextField.text, forKey: "firstName")
         dataSet.setObject(lastNameTextField.text, forKey: "lastName")
         dataSet.setObject(gitHubTextField.text, forKey: "gitHub")
+//        dataSet.setObject(personImage.image!, forKey: "image")
+        
         
         if ((people) != nil) { //data is available
             
