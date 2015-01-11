@@ -28,8 +28,6 @@ class DetailViewController: UIViewController {
         println("detailView loaded")
         
         gitHubInDVC.userInteractionEnabled = false
-    
-        
         
         imageInDVC.image = selectedPersonData.objectForKey("personImage") as? UIImage
         firstNameInDVC.text = selectedPersonData.objectForKey("firstName") as? String

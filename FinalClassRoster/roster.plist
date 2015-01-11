@@ -3,12 +3,16 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>gitHub</key>
+		<string>https://github.com/FrizzellC</string>
 		<key>firstName</key>
-		<string>Brad </string>
+		<string>Chantel</string>
 		<key>lastName</key>
-		<string>Johnson</string>
+		<string>Frizzell</string>
 	</dict>
 	<dict>
+		<key>gitHub</key>
+		<string>https://github.com/danielhour</string>
 		<key>firstName</key>
 		<string>Daniel</string>
 		<key>lastName</key>

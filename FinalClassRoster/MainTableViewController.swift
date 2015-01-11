@@ -10,7 +10,9 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    var roster:NSMutableArray = NSMutableArray()
+    var roster: NSMutableArray = NSMutableArray()
+    var personImage = UIImageView()
+    var userDefaults:NSUserDefaults = NSUserDefaults()
     
     override func viewDidAppear(animated: Bool) {
         //^called every time the view appears
@@ -23,7 +25,7 @@ class MainTableViewController: UITableViewController {
             roster = rosterFromUserDefaults!
         }
         
-        self.tableView.reloadData()
+        tableView.reloadData()
         
     }
     
@@ -31,12 +33,7 @@ class MainTableViewController: UITableViewController {
         override func viewDidLoad() {
         super.viewDidLoad()
             println("view did load")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,12 +50,6 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roster.count
     }
-
-//    @IBAction func addButtonClicked(sender: AnyObject) {
-//        println("add button clicked")
-//    
-//    }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PERSON_CELL", forIndexPath: indexPath) as PersonTableViewCell
@@ -67,14 +58,11 @@ class MainTableViewController: UITableViewController {
         var person:NSDictionary = roster.objectAtIndex(indexPath.row) as NSDictionary
         
         cell.firstNameInCell.text = person.valueForKey("firstName") as? String
-        println(roster.valueForKey("firstName") as? String)
         
         cell.lastnameInCell.text = person.valueForKey("lastName") as? String
         
-        var imageInCell = UIImageView().image
-        
-        cell.imageInCell.image = UIImage(contentsOfFile: "cameraImage")
-        
+      //  cell.imageInCell.image = personImage.image
+
         return cell
     }
     
@@ -86,20 +74,23 @@ class MainTableViewController: UITableViewController {
     // delete or add rows
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            println("delete?")
             // Delete the row from the data source
             roster.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            println("object removed")
+            
+//            userDefaults.synchronize()
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         
-        
+//        userDefaults.synchronize()
+
         tableView.reloadData()
         println("row deleted")
-        
-        
     }
     
 
