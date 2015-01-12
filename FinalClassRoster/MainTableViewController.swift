@@ -26,14 +26,11 @@ class MainTableViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        
     }
     
-    
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
             println("view did load")
-            
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +64,7 @@ class MainTableViewController: UITableViewController {
         //convert data to UIImage
         var newImage = UIImage(data: imageData)
         
-        //set mother fucking image
+        //set new image
         cell.imageInCell.image = newImage!
 
         return cell
@@ -86,16 +83,12 @@ class MainTableViewController: UITableViewController {
             roster.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             println("object removed")
-            
-            userDefaults.synchronize()
+            tableView.reloadData()
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
-        
-//        userDefaults.synchronize()
-
         tableView.reloadData()
         println("row deleted")
     }
@@ -127,12 +120,7 @@ class MainTableViewController: UITableViewController {
             var detailViewController:DetailViewController = segue.destinationViewController as DetailViewController
             detailViewController.selectedPersonData = roster.objectAtIndex(selectedIndexPath.row) as NSDictionary
         }
-        
         // Get the new view controller using [segue destinationViewController].
-        
-        
         // Pass the selected object to the new view controller.
     }
-    
-
 }

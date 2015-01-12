@@ -37,7 +37,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         return true
     }
 
-    
     @IBOutlet weak var personImage: UIImageView!
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: NSDictionary!) {
@@ -49,10 +48,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
 
-    
     @IBAction func updateImageClicked(sender: AnyObject) {
         println("update image tapped")
         
@@ -82,15 +79,13 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     @IBAction func saveChangesClicked(sender: AnyObject) {
         println("save changes tapped")
         
-     //   let imageToSave = personImage.image
-        
         //create the user's default view each time the app reopens
         var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
         var people:NSMutableArray? = userDefaults.objectForKey("roster") as? NSMutableArray
         
         //create the dictionary for default view
-        //var dataSet:NSMutableDictionary = NSMutableDictionary()
+    
         var dataSet = [String: AnyObject]()
         
         //add the default data to the data set
@@ -104,11 +99,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         //set Data as value for "image"
         dataSet["image"] = imageData
 
-        //dataSet.setObject(firstNameTextField.text, forKey: "firstName")
-        //dataSet.setObject(lastNameTextField.text, forKey: "lastName")
-        //dataSet.setObject(gitHubTextField.text, forKey: "gitHub")
-        //personImage
-        
         if ((people) != nil) { //data is available
             
             //create a new roster array and delete the old one
@@ -127,7 +117,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
               //initialize the roster
               people = NSMutableArray()
             
-            
               //add an object (the data set) to it
               people!.addObject(dataSet)
             
@@ -141,8 +130,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -150,8 +137,5 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
     }
-    
-
 }
