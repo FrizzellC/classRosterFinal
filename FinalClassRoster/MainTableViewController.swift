@@ -61,7 +61,14 @@ class MainTableViewController: UITableViewController {
         
         cell.lastnameInCell.text = person.valueForKey("lastName") as? String
         
-      //  cell.imageInCell.image = personImage.image
+        //call out data for ease of use
+        var imageData = person.valueForKey("image") as NSData
+        
+        //convert data to UIImage
+        var newImage = UIImage(data: imageData)
+        
+        //set mother fucking image
+        cell.imageInCell.image = newImage!
 
         return cell
     }
@@ -80,7 +87,7 @@ class MainTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             println("object removed")
             
-//            userDefaults.synchronize()
+            userDefaults.synchronize()
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

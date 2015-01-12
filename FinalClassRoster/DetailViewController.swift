@@ -26,14 +26,18 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println("detailView loaded")
+        var imageData = selectedPersonData.valueForKey("image") as NSData
+
+        var newImage = UIImage(data: imageData)
+
         
         gitHubInDVC.userInteractionEnabled = false
         
-        imageInDVC.image = selectedPersonData.objectForKey("personImage") as? UIImage
+        imageInDVC.image = newImage
         firstNameInDVC.text = selectedPersonData.objectForKey("firstName") as? String
         lastNameInDVC.text = selectedPersonData.objectForKey("lastName") as? String
         gitHubInDVC.text = selectedPersonData.objectForKey("gitHub") as? String
-        
+                
 
         // Do any additional setup after loading the view.
     }

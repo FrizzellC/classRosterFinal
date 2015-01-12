@@ -12,7 +12,7 @@ import UIKit
 class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePickerController = UIImagePickerController()
-    let image = UIImagePickerControllerEditedImage
+    let image: UIImage!
     
     @IBOutlet weak var firstNameTextField: UITextField! = UITextField()
     
@@ -42,7 +42,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: NSDictionary!) {
         
-        let image = info[UIImagePickerControllerEditedImage] as UIImage
+        var image = info[UIImagePickerControllerEditedImage] as UIImage
         self.personImage.image? = image
         if personImage?.image === image {
             println("image edited")
@@ -90,13 +90,25 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         var people:NSMutableArray? = userDefaults.objectForKey("roster") as? NSMutableArray
         
         //create the dictionary for default view
-        var dataSet:NSMutableDictionary = NSMutableDictionary()
+        //var dataSet:NSMutableDictionary = NSMutableDictionary()
+        var dataSet = [String: AnyObject]()
         
         //add the default data to the data set
-        dataSet.setObject(firstNameTextField.text, forKey: "firstName")
-        dataSet.setObject(lastNameTextField.text, forKey: "lastName")
-        dataSet.setObject(gitHubTextField.text, forKey: "gitHub")
-    
+        dataSet["firstName"] = firstNameTextField.text
+        dataSet["lastName"] = lastNameTextField.text
+        dataSet["gitHub"] = gitHubTextField.text
+        
+        //convert personimage.image to Data
+        var imageData = UIImagePNGRepresentation(personImage.image!)
+        
+        //set Data as value for "image"
+        dataSet["image"] = imageData
+
+        //dataSet.setObject(firstNameTextField.text, forKey: "firstName")
+        //dataSet.setObject(lastNameTextField.text, forKey: "lastName")
+        //dataSet.setObject(gitHubTextField.text, forKey: "gitHub")
+        //personImage
+        
         if ((people) != nil) { //data is available
             
             //create a new roster array and delete the old one
